@@ -11,7 +11,7 @@ namespace PriceBasket.Logic
     {
         private IEnumerable<Product> _validProducts;
         private ICollection<Product> _inputProducts;
-        private bool hasBeenValidated;
+        private bool _hasBeenValidated;
 
         public InputValidator(IEnumerable<Product> validProducts)
         {
@@ -21,7 +21,7 @@ namespace PriceBasket.Logic
         public ICollection<Product> GetValidatedProducts()
         {
             //if we haven't Validated any input successfully, throw an exception
-            if (!hasBeenValidated) { throw new InvalidOperationException("No products have been loaded."); }
+            if (!_hasBeenValidated) { throw new InvalidOperationException("No products have been loaded."); }
             return _inputProducts;
         }
 
@@ -43,7 +43,7 @@ namespace PriceBasket.Logic
                 }
             }
             //mark we have some validatedProducts to process
-            hasBeenValidated = true;
+            _hasBeenValidated = true;
             return true;
         }
     }
