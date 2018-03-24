@@ -23,8 +23,10 @@ namespace PriceBasket
                 return;
             }
             //pass the newly validated products into the checkout to determine the subtotal
-            
-            
+            var checkout = new Checkout(validator.GetValidatedProducts());
+            Console.WriteLine($"Subtotal: £{checkout.DetermineSubtotal()}");
+            //load the special offers
+
         }
     }
 }

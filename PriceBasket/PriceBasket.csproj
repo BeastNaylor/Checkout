@@ -42,11 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logic\Checkout.cs" />
+    <Compile Include="Logic\ICheckout.cs" />
     <Compile Include="Logic\InputValidator.cs" />
     <Compile Include="Logic\IProductLoader.cs" />
     <Compile Include="Logic\IInputValidator.cs" />
+    <Compile Include="Model\DiscountOffer.cs" />
+    <Compile Include="Model\MultibuyOffer.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Logic\ProductLoader.cs" />
+    <Compile Include="Model\ISpecialOffer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
