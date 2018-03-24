@@ -50,7 +50,7 @@ namespace PriceBasketTests
             var _twoBeansOneEggs = new List<Product>() { new Product("Beans", 0.9m), new Product("Beans", 0.9m), new Product("Eggs", 0.3m) };
             ISpecialOffer offer = new MultibuyOffer("Beans", 2, "Eggs", 2);
             var discountProduct = offer.DetermineSpecialOffer(_twoBeansOneEggs);
-            Assert.AreEqual<decimal>(0.3m, discountProduct.Price);
+            Assert.AreEqual<decimal>(-0.3m, discountProduct.Price);
         }
 
         [TestMethod]
@@ -60,7 +60,7 @@ namespace PriceBasketTests
             var _twoBeansTwoEggs = new List<Product>() { new Product("Beans", 0.9m), new Product("Beans", 0.9m), new Product("Eggs", 0.3m), new Product("Eggs", 0.3m) };
             ISpecialOffer offer = new MultibuyOffer("Beans", 2, "Eggs", 1);
             var discountProduct = offer.DetermineSpecialOffer(_twoBeansTwoEggs);
-            Assert.AreEqual<decimal>(0.3m, discountProduct.Price);
+            Assert.AreEqual<decimal>(-0.3m, discountProduct.Price);
         }
 
         [TestMethod]
@@ -70,7 +70,7 @@ namespace PriceBasketTests
             var _twoBeansTwoEggs = new List<Product>() { new Product("Beans", 0.9m), new Product("Beans", 0.9m), new Product("Eggs", 0.3m), new Product("Eggs", 0.3m) };
             ISpecialOffer offer = new MultibuyOffer("Beans", 2, "Eggs", 2);
             var discountProduct = offer.DetermineSpecialOffer(_twoBeansTwoEggs);
-            Assert.AreEqual<decimal>(0.6m, discountProduct.Price);
+            Assert.AreEqual<decimal>(-0.6m, discountProduct.Price);
         }
 
     }

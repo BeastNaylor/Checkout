@@ -37,7 +37,7 @@ namespace PriceBasket.Model
                 //if we have any products to discount, then return a product of their value
                 if (numOfferProductsToDiscount > 0)
                 {
-                    return new Product($"{numOfferProductsToDiscount} {_offerProductName}", numOfferProductsToDiscount * offeredProductPrice);
+                    return new Product($"{numOfferProductsToDiscount} {_offerProductName}", -1 * numOfferProductsToDiscount * offeredProductPrice);
                 }
             }
             //both Productnames aren't in the list, so no offer to be had

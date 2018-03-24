@@ -33,7 +33,7 @@ namespace PriceBasketTests
             var discountProduct = offer.DetermineSpecialOffer(_products);
             //expecting 10% off the price of Eggs (30p), so discountProduct should be 3p
             Assert.AreEqual("Eggs 10% off", discountProduct.ProductName);
-            Assert.AreEqual(0.03m, discountProduct.Price);
+            Assert.AreEqual(-0.03m, discountProduct.Price);
         }
     }
 }
