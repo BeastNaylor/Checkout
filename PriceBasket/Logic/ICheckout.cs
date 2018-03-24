@@ -13,6 +13,8 @@ namespace PriceBasket.Logic
 
         void ProcessSpecialOffers(IEnumerable<ISpecialOffer> products);
 
+        IEnumerable<Product> GetSpecialOffers();
+
         decimal DetermineTotal();
     }
 }

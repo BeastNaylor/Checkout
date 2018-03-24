@@ -10,7 +10,8 @@ namespace PriceBasket.Logic
     class Checkout : ICheckout
     {
         private IEnumerable<Product> _loadedProducts;
-        private IEnumerable<ISpecialOffer> _applicableSpecialOffers;
+        private ICollection<Product> _applicableSpecialOffers;
+        private bool _offersBeenProcessed;
 
         public Checkout(IEnumerable<Product> products)
         {
@@ -22,14 +23,35 @@ namespace PriceBasket.Logic
             return _loadedProducts.Sum(p => p.Price);
         }
 
-        public decimal DetermineTotal()
+        public decimal DetermineSpecialOffersSavings()
         {
-            throw new NotImplementedException();
+            return _applicableSpecialOffers.Sum(p => p.Price);
         }
 
-        public void ProcessSpecialOffers(IEnumerable<ISpecialOffer> products)
+        public decimal DetermineTotal()
         {
-            throw new NotImplementedException();
+            return DetermineSubtotal() + DetermineSpecialOffersSavings();
+        }
+
+        public IEnumerable<Product> GetSpecialOffers()
+        {
+            //if we haven't processed the offers, throw an exception
+            if (!_offersBeenProcessed) { throw new InvalidOperationException("No offers have been processed."); }
+            return _applicableSpecialOffers;
+        }
+
+        public void ProcessSpecialOffers(IEnumerable<ISpecialOffer> offers)
+        {
+            _applicableSpecialOffers = new List<Product>();
+            foreach (ISpecialOffer offer in offers)
+            {
+                var discountProduct = offer.DetermineSpecialOffer(_loadedProducts);
+                if (discountProduct != null)
+                {
+                    _applicableSpecialOffers.Add(discountProduct);
+                }
+            }
+            _offersBeenProcessed = true;
         }
     }
 }

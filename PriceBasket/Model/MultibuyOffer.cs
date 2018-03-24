@@ -38,7 +38,8 @@ namespace PriceBasket.Model
                 //if we have any products to discount, then return a product of their value
                 if (numOfferProductsToDiscount > 0)
                 {
-                    return new Product($"{numOfferProductsToDiscount} {_offerProductName} free", -1 * numOfferProductsToDiscount * offeredProductPrice);
+                    decimal finalDiscountValue = decimal.Round(-1 * numOfferProductsToDiscount * offeredProductPrice, 2);
+                    return new Product($"Discount on {_offerProductName}", finalDiscountValue);
                 }
             }
             //both Productnames aren't in the list, so no offer to be had

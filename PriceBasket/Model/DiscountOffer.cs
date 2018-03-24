@@ -25,7 +25,8 @@ namespace PriceBasket.Model
             {
                 var totalProductPrice = discountProducts.Sum(p => p.Price);
                 //return an item of that is the price of the discount
-                return new Product($"{_productName} {_discount.ToString("p0")} off", -1 * totalProductPrice * _discount);
+                var finalDiscountValue = decimal.Round(-1 * totalProductPrice * _discount, 2);
+                return new Product($"{_productName} {_discount.ToString("p0")} off", finalDiscountValue);
             }
             // if there are no items returning, we have no discount
             return null;
