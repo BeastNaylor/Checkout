@@ -26,7 +26,8 @@ namespace PriceBasket
             var checkout = new Checkout(validator.GetValidatedProducts());
             Console.WriteLine($"Subtotal: £{checkout.DetermineSubtotal()}");
             //load the special offers
-
+            var specialOffers = new SpecialOfferLoader(DateTime.Today).LoadCurrentOffers();
+            checkout.ProcessSpecialOffers(specialOffers);
         }
     }
 }

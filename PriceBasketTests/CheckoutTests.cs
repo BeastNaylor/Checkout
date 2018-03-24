@@ -42,5 +42,14 @@ namespace PriceBasketTests
             var subtotal = checkout.DetermineSubtotal();
             Assert.AreEqual<decimal>(subtotal, 1.2m);
         }
+
+        [TestMethod]
+        public void CheckDiscountOfferApplies()
+        {
+            var checkout = new Checkout(_products);
+            //checkout.ProcessSpecialOffers(new ());
+            var subtotal = checkout.DetermineSubtotal();
+            Assert.AreEqual<decimal>(subtotal, 1.2m);
+        }
     }
 }

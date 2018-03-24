@@ -47,6 +47,8 @@
     <Compile Include="Logic\InputValidator.cs" />
     <Compile Include="Logic\IProductLoader.cs" />
     <Compile Include="Logic\IInputValidator.cs" />
+    <Compile Include="Logic\ISpecialOfferLoader.cs" />
+    <Compile Include="Logic\SpecialOfferLoader.cs" />
     <Compile Include="Model\DiscountOffer.cs" />
     <Compile Include="Model\MultibuyOffer.cs" />
     <Compile Include="Model\Product.cs" />

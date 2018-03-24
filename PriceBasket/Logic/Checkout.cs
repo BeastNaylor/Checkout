@@ -10,6 +10,7 @@ namespace PriceBasket.Logic
     class Checkout : ICheckout
     {
         private IEnumerable<Product> _loadedProducts;
+        private IEnumerable<ISpecialOffer> _applicableSpecialOffers;
 
         public Checkout(IEnumerable<Product> products)
         {
@@ -22,6 +23,11 @@ namespace PriceBasket.Logic
         }
 
         public decimal DetermineTotal()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ProcessSpecialOffers(IEnumerable<ISpecialOffer> products)
         {
             throw new NotImplementedException();
         }

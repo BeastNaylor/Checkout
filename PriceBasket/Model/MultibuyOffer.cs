@@ -11,14 +11,15 @@ namespace PriceBasket.Model
         private string _reqProductName;
         private int _reqProductCount;
         private string _offerProductName;
-        private int _offerProductCount;
+        private decimal _offerProductCount;
 
-        public MultibuyOffer(string requiredProductName, int requiredProductCount, string offerProductName, int offerProductCount)
+        public MultibuyOffer(string requiredProductName, int requiredProductCount, string offerProductName, decimal offerProductCount)
         {
             _reqProductName = requiredProductName;
             _reqProductCount = requiredProductCount;
             _offerProductName = offerProductName;
             _offerProductCount = offerProductCount;
+
         }
 
         public Product DetermineSpecialOffer(IEnumerable<Product> _products)

@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace PriceBasket.Logic
 {
-    interface ICheckout
+    interface ISpecialOfferLoader
     {
-        decimal DetermineSubtotal();
-
-        void ProcessSpecialOffers(IEnumerable<ISpecialOffer> products);
-
-        decimal DetermineTotal();
+        ICollection<ISpecialOffer> LoadCurrentOffers();
     }
 }

@@ -11,7 +11,6 @@ namespace PriceBasket.Model
         private string _productName;
         private decimal _discount;
 
-
         public DiscountOffer(string productName, decimal discount)
         {
             _productName = productName;
