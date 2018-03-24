@@ -1,4 +1,4 @@
-﻿using PriceBasket.Model;
+﻿using PriceBasket.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +22,8 @@ namespace PriceBasket
                 Console.WriteLine("Invalid input received.");
                 return;
             }
-            foreach (Product product in validator.GetValidatedProducts())
-            {
-                Console.WriteLine($"Product: {product.ProductName}");
-            }
+            //pass the newly validated products into the checkout to determine the subtotal
+            
             
         }
     }

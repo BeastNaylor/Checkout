@@ -1,5 +1,5 @@
 ﻿using System;
-using PriceBasket;
+using PriceBasket.Logic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PriceBasketTests
