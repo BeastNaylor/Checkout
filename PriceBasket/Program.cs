@@ -37,7 +37,7 @@ namespace PriceBasket
                 }
             } else
             {
-                Console.WriteLine("No offers available");
+                Console.WriteLine("(No offers available)");
             }
             Console.WriteLine($"Total: {string.Format("{0:C}", checkout.DetermineTotal())}");
         }
