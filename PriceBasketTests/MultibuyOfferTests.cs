@@ -51,6 +51,7 @@ namespace PriceBasketTests
             ISpecialOffer offer = new MultibuyOffer("Beans", 2, "Eggs", 2);
             var discountProduct = offer.DetermineSpecialOffer(_twoBeansOneEggs);
             Assert.AreEqual<decimal>(-0.3m, discountProduct.Price);
+            Assert.AreEqual("1 Eggs free", discountProduct.ProductName);
         }
 
         [TestMethod]
@@ -61,6 +62,7 @@ namespace PriceBasketTests
             ISpecialOffer offer = new MultibuyOffer("Beans", 2, "Eggs", 1);
             var discountProduct = offer.DetermineSpecialOffer(_twoBeansTwoEggs);
             Assert.AreEqual<decimal>(-0.3m, discountProduct.Price);
+            Assert.AreEqual("1 Eggs free", discountProduct.ProductName);
         }
 
         [TestMethod]
@@ -71,6 +73,7 @@ namespace PriceBasketTests
             ISpecialOffer offer = new MultibuyOffer("Beans", 2, "Eggs", 2);
             var discountProduct = offer.DetermineSpecialOffer(_twoBeansTwoEggs);
             Assert.AreEqual<decimal>(-0.6m, discountProduct.Price);
+            Assert.AreEqual("2 Eggs free", discountProduct.ProductName);
         }
 
     }
