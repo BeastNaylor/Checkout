@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PriceBasket.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,12 +18,13 @@ namespace PriceBasket
             IInputValidator validator = new InputValidator(products);
             if (!validator.ValidateInput(args))
             {
-                Console.WriteLine("Invalid Input");
+                //TODO: could return which of the inputs were invalid
+                Console.WriteLine("Invalid input received.");
                 return;
             }
             foreach (Product product in validator.GetValidatedProducts())
             {
-                Console.WriteLine($"Product: {product}");
+                Console.WriteLine($"Product: {product.ProductName}");
             }
             
         }

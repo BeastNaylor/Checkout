@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using PriceBasket;
+using PriceBasket.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PriceBasketTests

@@ -45,7 +45,7 @@
     <Compile Include="InputValidator.cs" />
     <Compile Include="IProductLoader.cs" />
     <Compile Include="IInputValidator.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="ProductLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

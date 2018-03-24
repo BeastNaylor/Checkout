@@ -1,4 +1,5 @@
 ﻿using System;
+using PriceBasket.Model;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace PriceBasket
 
         public ICollection<Product> GetValidatedProducts()
         {
+            //if we haven't Validated any input successfully, throw an exception
             if (!hasBeenValidated) { throw new InvalidOperationException("No products have been loaded."); }
             return _inputProducts;
         }

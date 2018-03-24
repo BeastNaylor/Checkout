@@ -1,4 +1,5 @@
 ﻿using PriceBasket;
+using PriceBasket.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
