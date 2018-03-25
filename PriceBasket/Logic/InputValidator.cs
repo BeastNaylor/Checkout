@@ -31,7 +31,7 @@ namespace PriceBasket.Logic
             //compare the input we have received with the validProducts
             foreach (string inputItem in input)
             {
-                var product = _validProducts.Where(p => p.ProductName == inputItem).SingleOrDefault();
+                var product = _validProducts.Where(p => p.ProductName.ToLower(new System.Globalization.CultureInfo("en-GB")) == inputItem.ToLower(new System.Globalization.CultureInfo("en-GB"))).SingleOrDefault();
                 if (product != null)
                 {
                     _inputProducts.Add(product);

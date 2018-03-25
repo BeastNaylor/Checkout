@@ -13,5 +13,8 @@ In the situation where there are no special offers available, it should print th
 > (No offers available)
 > Total: £1.50
 
+##Considerations
+Original brief didn't mention case-sensitivity for the input, so I've decided to go easy and match after a .lower()
+
 ## Further Development
 In order to reduce the edits required to the codebase in the future, the Products and SpecialOffer loaders could be changed to read from a local file, or make an API call to receive their relevant information

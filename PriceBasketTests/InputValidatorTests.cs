@@ -53,5 +53,14 @@ namespace PriceBasketTests
             var isValidProducts = validator.ValidateInput(input);
             Assert.IsFalse(isValidProducts);
         }
+
+        [TestMethod]
+        public void CheckWrongCaseValid()
+        {
+            var input = new string[] { "milk", "EGGS" };
+            var validator = new InputValidator(_products);
+            var isValidProducts = validator.ValidateInput(input);
+            Assert.IsTrue(isValidProducts);
+        }
     }
 }
