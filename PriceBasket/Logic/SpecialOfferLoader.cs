@@ -10,7 +10,7 @@ namespace PriceBasket.Logic
     class SpecialOfferLoader : ISpecialOfferLoader
     {
         private DateTime _date;
-        private ICollection<Tuple<DateTime, DateTime, ISpecialOffer>> _offers;
+        private ICollection<SpecialOfferDuration> _offers;
 
         public SpecialOfferLoader(DateTime currentDate)
         {
@@ -23,17 +23,24 @@ namespace PriceBasket.Logic
             var startThisWeek = new DateTime(2018, 03, 25);
             var endThisWeek = new DateTime(2018, 04, 1);
         
-            _offers = new List<Tuple<DateTime, DateTime, ISpecialOffer>>();
+            _offers = new List<SpecialOfferDuration>();
             //TODO: move this function out of the code so Offers can be dynamically added
             var appleOffer = new DiscountOffer("Apples", 0.1m);
             var soupOffer = new MultibuyOffer("Soup", 2, "Bread", 0.5m);
-            _offers.Add(new Tuple<DateTime, DateTime, ISpecialOffer>(startThisWeek, endThisWeek, appleOffer));
-            _offers.Add(new Tuple<DateTime, DateTime, ISpecialOffer>(startThisWeek, endThisWeek, soupOffer));
+            _offers.Add(new SpecialOfferDuration() { StartDate = startThisWeek, EndDate = endThisWeek, SpecialOffer = appleOffer });
+            _offers.Add(new SpecialOfferDuration() { StartDate = startThisWeek, EndDate = endThisWeek, SpecialOffer = soupOffer });
         }
 
         public ICollection<ISpecialOffer> LoadCurrentOffers()
         {
-            return _offers.Where(o => o.Item1 <= _date && o.Item2 >= _date).Select(o => o.Item3).ToList();
+            return _offers.Where(o => o.StartDate <= _date && o.EndDate >= _date).Select(o => o.SpecialOffer).ToList();
+        }
+
+        private class SpecialOfferDuration
+        {
+            public DateTime StartDate;
+            public DateTime EndDate;
+            public ISpecialOffer SpecialOffer;
         }
     }
 }
